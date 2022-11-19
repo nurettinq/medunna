@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="22.17">
+    <testcase classname="US001 Kayıt olmak için SSN, First Name ve Last Name bilgileri girilebilmelidir." name="TC004,SSN boş bırakılamaz. (negatif Test)" time="21.472">
+        <system-out><![CDATA[Given Belirtilen Url ye gidilir.............................................passed
+When User ikonuna tıklanır..................................................passed
+And Register butonuna tıklanır..............................................passed
+And SSN box a tiklanir ve hic birsey  girilmez..............................passed
+Then "Your SSN is required." yazisinin gorundugunu dogrular.................passed
+]]></system-out>
+    </testcase>
+</testsuite>
