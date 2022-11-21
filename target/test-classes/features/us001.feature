@@ -6,10 +6,11 @@ Feature: US001 Kayıt olmak için SSN, First Name ve Last Name bilgileri girileb
     When User ikonuna tıklanır
     And Register butonuna tıklanır
 
-  @tes
-  Scenario Outline: TC001 Geçerli bir SSN, 3. ve 5. rakamdan sonra "-" içermeli ve 9 rakamdan oluşmalıdır. (Pozitif Test)
+  @Test1
+  Scenario Outline: TC_001 Geçerli bir SSN, 3. ve 5. rakamdan sonra "-" içermeli ve 9 rakamdan oluşmalıdır. (Pozitif Test)
     And SSN kutusuna ucuncu ve besinci karakterden sonra (-) iceren dokuz rakamlı bir "<SSN>" girilir
-  Then Your SSN is invalid yazısının görünmediğini doğrular
+    And 2 saniye bekler
+    Then Your SSN is invalid yazısının gorunmedigini doğrular
     Examples:
       | SSN |
       |111-11-1111|
@@ -23,9 +24,9 @@ Feature: US001 Kayıt olmak için SSN, First Name ve Last Name bilgileri girileb
       |999-99-9999|
       |000-00-0000|
    @Test2
-  Scenario Outline: TC002, SSN kutusuna sadece bir karakteri harf olan 9 rakamlı bir SSN girilir(negatif Test)
+  Scenario Outline: TC002 -SSN kutusuna sadece bir karakteri harf olan 9 rakamlı bir SSN girilir(negatif Test)
     And Gecersiz bir "<SSN>" girilir
-    Then Your SSN is invalid yazisinin gorundugunu dogrular
+     Then "Your SSN is invalid" yazisinin gorundugunu dogrular
     Examples:
       |SSN|
       |a11-11-1111|
@@ -37,9 +38,10 @@ Feature: US001 Kayıt olmak için SSN, First Name ve Last Name bilgileri girileb
       |111-11-1a11|
       |111-11-11a1|
       |111-11-111a|
- Scenario Outline: TC003, SSN kutusuna 3. veya 5. karakterden sonra (-) icermeyen 9 rakamlı bir SSN girilir(negatif Test)
+  @Test3
+  Scenario Outline: TC_003 SSN kutusuna 3. veya 5. karakterden sonra (-) icermeyen 9 rakamlı bir SSN girilir(negatif Test)
    And Gecersiz bir "<SSN>" girilir
-   Then Your SSN is invalid yazisinin gorundugunu dogrular
+   Then "Your SSN is invalid" yazisinin gorundugunu dogrular
    Examples:
      | SSN |
      | 1-1111-1111 |
@@ -50,16 +52,19 @@ Feature: US001 Kayıt olmak için SSN, First Name ve Last Name bilgileri girileb
      | 1111111-1-1 |
      | 1111111111- |
      | 1111-11-111 |
-  Scenario Outline: TC004,TC005 SSN kutusuna 3. ve 5. karakterden sonra (-) iceren 8 ve 11 rakamlı bir SSN girilir.(negatif Test)
+  @Test4
+  Scenario Outline: TC_004 SSN kutusuna 3. ve 5. karakterden sonra (-) iceren 8 ve 11 rakamlı bir SSN girilir.(negatif Test)
     And Gecersiz bir "<SSN>" girilir
-    Then Your SSN is invalid yazisinin gorundugunu dogrular
+    Then "Your SSN is invalid" yazisinin gorundugunu dogrular
     Examples:
       | SSN |
       | 111-11-111 |
       | 111-11-11111 |
-  Scenario Outline: TC004,SSN kutusuna 3. ve 5. karakterden sonra (-)'den farklı özel karakterli 9 rakamlı bir SSN girilir (negatif Test)
+
+  @Test5
+  Scenario Outline: TC_005, TC_006 SSN kutusuna 3. ve 5. karakterden sonra (-)'den farklı özel karakterli 9 rakamlı bir SSN girilir (negatif Test)
     And Gecersiz bir "<SSN>" girilir
-    Then Your SSN is invalid yazisinin gorundugunu dogrular
+    Then "Your SSN is invalid" yazisinin gorundugunu dogrular
     Examples:
       | SSN |
       | 111*11*1111 |
@@ -73,9 +78,59 @@ Feature: US001 Kayıt olmak için SSN, First Name ve Last Name bilgileri girileb
       | 111;11;1111 |
       | 111=11=1111 |
 
-    @Test3
-  Scenario: TC004,SSN boş bırakılamaz. (negatif Test)
+    @Test7
+  Scenario: TC_007 SSN boş birakilamaz. (negatif Test)
     And SSN box a tiklanir ve hic birsey  girilmez
     Then "Your SSN is required." yazisinin gorundugunu dogrular
 
+   @Test8
+  Scenario Outline: TC_008 Herhangi bir karakter iceren ve bos birakilamayan gecerli bir "First Name" olmalidir.(pozitif Test)
+    And firstname boxa gecerli "<firstname>" girilir
+     Then gecerli bir firstName girilebildigini dogrulanir
+    Examples:
+      | firstname |
+      | / |
+      | - |
+      | + |
+      | * |
+      | ; |
+      | , |
+      | . |
+      | : |
+      | = |
+      | / |
+      | $ |
+      | % |
+      | 1 |
+      | a |
+      | ' |
+    @Test9
+    Scenario: TC_009 Herhangi bir karakter içeren ve boş bırakılamayan geçerli bir "First Name" olmalıdır.(negatif Test)
+      And firstname boxa tiklanir ve hic birsey girilmez
+      Then "Your FirstName is required." feedback yazisinin gorundugunu dogrular
+  @Test10
+  Scenario Outline: TC_008 Herhangi bir karakter iceren ve bos birakilamayan gecerli bir "Last Name" olmalidir.(pozitif Test)
+    And lastName boxa gecerli "<lastname>" girilir
+    Then gecerli bir lastName girilebildigini dogrulanir
+    Examples:
+      | lastname |
+      | / |
+      | - |
+      | + |
+      | * |
+      | ; |
+      | , |
+      | . |
+      | : |
+      | = |
+      | / |
+      | $ |
+      | % |
+      | 1 |
+      | a |
+      | ' |
+  @Test11
+  Scenario: TC_009 Herhangi bir karakter içeren ve boş bırakılamayan geçerli bir "Last Name" olmalıdır.(negatif Test)
+    And lastName boxa tiklanir ve hic birsey girilmez
+    Then "Your FirstName is required." lastname feedback yazisinin gorundugunu dogrular
 
