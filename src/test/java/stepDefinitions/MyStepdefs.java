@@ -106,6 +106,5 @@ public class MyStepdefs {
     @Then("{string} lastname feedback yazisinin gorundugunu dogrular")
     public void lastnameFeedbackYazisininGorundugunuDogrular(String text) {
         assertEquals(text,medunnaPage.lastInvalidFeedback.getText());
-
     }
 }
