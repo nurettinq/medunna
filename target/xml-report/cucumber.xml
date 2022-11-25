@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="3.023">
+    <testcase classname="database test" name="TC_005 E-mail API ve DB ile doğrulanmalıdır." time="2.327">
+        <system-out><![CDATA[Given nq Connect to database................................................passed
+When nq According to the SSN value in the table, the user receives all information.passed
+Then nq Verify  query result................................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

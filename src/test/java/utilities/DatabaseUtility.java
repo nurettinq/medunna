@@ -1,5 +1,7 @@
 package utilities;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -227,7 +229,18 @@ public class DatabaseUtility {
 
     public static void main(String[] args) {
         createConnection();
-        String query="Select * from jhi_user";
+        String query="Select * from jhi_user where ssn='565-66-6666'";
         System.out.println(getColumnNames(query));
+        System.out.println(getRowMap(query));
+       Map<String,Object> actualData=getRowMap(query);
+
+        // getColumnData(query,"");
+        //  image_url=null, lang_key=en, last_name=memat,
+        //  last_modified_date=2022-11-23 14:29:09.039933, reset_key=null,
+        //  last_modified_by=batch81, login=hastamemat, created_by=anonymousUser,
+        //  ssn=565-66-6666, activation_key=CVDPMfqxIOdFBOwZBpRD, reset_date=null,
+        //  password_hash=$2a$10$YezZD3GAbMz3PUcD8lmpHuSu.iSobfph0fS69r.MnxolQ0nYeyVm6, id=327898,
+        //  created_date=2022-11-23 14:28:34.835452, first_name=hasta, email=memat@m.gmail.com, activated=true
+        //}
     }
 }
