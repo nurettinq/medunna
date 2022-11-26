@@ -16,13 +16,13 @@ public class Body {
     private String adress;
     private String email;
     private String description;
-    private User user;
+    private UserNQ user;
     private Object appointments;
     private Object inPatients;
     private Country country;
     private Object cstate;
 
-    public Body(String createdBy, String createdDate, Integer id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, User user, Object appointments, Object inPatients, Country country, Object cstate) {
+    public Body(String createdBy, String createdDate, Integer id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, UserNQ user, Object appointments, Object inPatients, Country country, Object cstate) {
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.id = id;
@@ -141,11 +141,11 @@ public class Body {
         this.description = description;
     }
 
-    public User getUser() {
+    public UserNQ getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserNQ user) {
         this.user = user;
     }
 

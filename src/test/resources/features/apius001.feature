@@ -1,15 +1,18 @@
 Feature: US_002 Kayit olmak icin email and username bilgileri girilebilmelidir.
 
-  Background: Ortak Adimlar
-    Given   YE User Medunna
-    When    YE User send Get request
-    Then    YE Status code is 200
 
-  Scenario: TC_002 Kullanici adi api kullanilarak dogrulanmalidir.
-
-    And   YE Verifies that valid username is also api
-
-
-  Scenario: TC_004 E-mail API ve DB ile doğrulanmalıdır.
-
-    And   YE Verifies that valid email is also api
+ @ApiUs01
+  Scenario: T_012 Swagger dökümanı kullanarak tüm kayıt bilgileri doğrulanmalı.
+    Given nq Medunna
+    When  nq send Get request
+    Then  nq Status code is 200
+    And   nq Verifies that valid username is also api
+    And   nq Verifies that valid firstname is also api
+    And   nq Verifies that valid lastname is also api
+    And   nq Verifies that valid email is also api
+  @ApiUs01P
+   Scenario: TC_013 API kullanarak kayıtlı kişiler oluşturulup ve doğrulayabilmeli
+     Given nq Medunna
+     When nq send post request by entering "firstname" ,"lastname", "email", "login", "ssn"
+     Then  nq Status code is 200
+     And   nq Verifies the entered "firstame" ,"lastname", "email", "login", "ssn"

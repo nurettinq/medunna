@@ -14,7 +14,7 @@ import utilities.ReusableMethods;
 
 import static org.junit.Assert.*;
 
-public class MyStepdefs {
+public class US001Steps {
     static MedunnaPage medunnaPage=new MedunnaPage();
     static Actions actions=new Actions(Driver.getDriver());
 

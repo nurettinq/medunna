@@ -7,21 +7,21 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-    private int id;
+public class UserNQ {
+    private Integer id;
     private String login;//username
     private String ssn;
     private String firstName;
     private String lastName;
     private String email;
     private String imageUrl;
-    private boolean activated;
+    private Boolean activated;
     private String langKey;
     private String createdBy;
     private String createdDate;
     private String resetDate;
 
-    public User(int id, String login, String ssn, String firstName, String lastName, String email, String imageUrl, boolean activated, String langKey, String createdBy, String createdDate, String resetDate) {
+    public UserNQ(Integer id, String login, String ssn, String firstName, String lastName, String email, String imageUrl, Boolean activated, String langKey, String createdBy, String createdDate, String resetDate) {
         this.id = id;
         this.login = login;
         this.ssn = ssn;
@@ -36,10 +36,10 @@ public class User {
         this.resetDate = resetDate;
     }
 
-    public User() {
+    public UserNQ() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -95,7 +95,7 @@ public class User {
         this.imageUrl = imageUrl;
     }
 
-    public boolean isActivated() {
+    public Boolean isActivated() {
         return activated;
     }
 

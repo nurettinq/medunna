@@ -19,7 +19,7 @@ public class Physician {
     private String bloodGroup;
     private String adress;
     private String description;
-    private User user;
+    private UserNQ user;
     private String speciality;
     private Country country;
     private State cstate;
@@ -27,7 +27,7 @@ public class Physician {
     private String image;
     private String imageContentType;
 
-    public Physician(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String description, User user, String speciality, Country country, State cstate, double examFee, String image, String imageContentType) {
+    public Physician(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String description, UserNQ user, String speciality, Country country, State cstate, double examFee, String image, String imageContentType) {
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.id = id;
@@ -139,11 +139,11 @@ public class Physician {
         this.description = description;
     }
 
-    public User getUser() {
+    public UserNQ getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserNQ user) {
         this.user = user;
     }
 
