@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import pages.MedunnaPage;
+import pages.Nurettin;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtils;
@@ -14,8 +14,8 @@ import utilities.ReusableMethods;
 
 import static org.junit.Assert.*;
 
-public class US001Steps {
-    static MedunnaPage medunnaPage=new MedunnaPage();
+public class US01Steps {
+    static Nurettin nurettin =new Nurettin();
     static Actions actions=new Actions(Driver.getDriver());
 
     @Given("Belirtilen Url ye gidilir.")
@@ -25,36 +25,36 @@ public class US001Steps {
 
     @When("User ikonuna tıklanır")
     public void userIkonunaTiklanir() {
-        medunnaPage.userIkon.click();
+        nurettin.userIkon.click();
     }
     @And("Register butonuna tıklanır")
     public void registerButonunaTiklanir() {
-        medunnaPage.register.click();
+        nurettin.register.click();
         ReusableMethods.waitFor(2);
     }
 
     @And("SSN kutusuna ucuncu ve besinci karakterden sonra \\(-) iceren dokuz rakamlı bir {string} girilir")
     public void ssnKutusunaUcuncuVeBesinciKarakterdenSonraIcerenDokuzRakamliBirGirilir(String ssn) {
-        medunnaPage.ssnBox.click();
-        JSUtils.clickElementByJS(medunnaPage.ssnBox);
-        actions.sendKeys(medunnaPage.ssnBox,ssn).perform();
+        nurettin.ssnBox.click();
+        JSUtils.clickElementByJS(nurettin.ssnBox);
+        actions.sendKeys(nurettin.ssnBox,ssn).perform();
         }
 
     @And("Gecersiz bir {string} girilir")
     public void gecersizBirGirilir(String ssn) {
-        JSUtils.clickElementByJS(medunnaPage.ssnBox);
-        actions.sendKeys(medunnaPage.ssnBox,ssn).sendKeys(Keys.TAB).perform();
+        JSUtils.clickElementByJS(nurettin.ssnBox);
+        actions.sendKeys(nurettin.ssnBox,ssn).sendKeys(Keys.TAB).perform();
     }
 
     @And("SSN box a tiklanir ve hic birsey  girilmez")
     public void ssnBoxATiklanirVeHicBirseyGirilmez() {
-        actions.click(medunnaPage.ssnBox).sendKeys(Keys.TAB).perform();
+        actions.click(nurettin.ssnBox).sendKeys(Keys.TAB).perform();
     }
 
     @And("firstname boxa gecerli {string} girilir")
     public void firstnameBoxaGecerliGirilir(String text) {
-        JSUtils.clickElementByJS(medunnaPage.firstNameBox);
-        actions.sendKeys(medunnaPage.firstNameBox,text).sendKeys(Keys.TAB).perform();
+        JSUtils.clickElementByJS(nurettin.firstNameBox);
+        actions.sendKeys(nurettin.firstNameBox,text).sendKeys(Keys.TAB).perform();
 
     }
     @And("{int} saniye bekler")
@@ -64,47 +64,47 @@ public class US001Steps {
 
     @Then("Your SSN is invalid yazısının gorunmedigini doğrular")
     public void yourSSNIsInvalidYazisininGorunmediginiDogrular() {
-        assertTrue(medunnaPage.validSSN.isDisplayed());
+        assertTrue(nurettin.validSSN.isDisplayed());
     }
 
     @And("firstname boxa tiklanir ve hic birsey girilmez")
     public void firstnameBoxaTiklanirVeHicBirseyGirilmez() {
-        actions.click(medunnaPage.firstNameBox).sendKeys(Keys.TAB).perform();
+        actions.click(nurettin.firstNameBox).sendKeys(Keys.TAB).perform();
     }
 
     @Then("gecerli bir firstName girilebildigini dogrulanir")
     public void gecerliBirFirstNameGirilebildiginiDogrulanir() {
-        assertTrue(medunnaPage.validFirstName.isDisplayed());
+        assertTrue(nurettin.validFirstName.isDisplayed());
     }
 
     @Then("{string} yazisinin gorundugunu dogrular")
     public void yazisininGorundugunuDogrular(String text) {
-        assertEquals(text,medunnaPage.ssnInvalidFeedback.getText());
+        assertEquals(text, nurettin.ssnInvalidFeedback.getText());
     }
 
     @Then("gecerli bir lastName girilebildigini dogrulanir")
     public void gecerliBirLastNameGirilebildiginiDogrulanir() {
-      assertTrue(medunnaPage.validLastName.isDisplayed());
+      assertTrue(nurettin.validLastName.isDisplayed());
     }
 
     @And("lastName boxa gecerli {string} girilir")
     public void lastnameBoxaGecerliGirilir(String text) {
-        JSUtils.clickElementByJS(medunnaPage.lastNameBox);
-        actions.sendKeys(medunnaPage.lastNameBox,text).sendKeys(Keys.TAB).perform();
+        JSUtils.clickElementByJS(nurettin.lastNameBox);
+        actions.sendKeys(nurettin.lastNameBox,text).sendKeys(Keys.TAB).perform();
     }
 
     @And("lastName boxa tiklanir ve hic birsey girilmez")
     public void lastnameBoxaTiklanirVeHicBirseyGirilmez() {
-        actions.click(medunnaPage.lastNameBox).sendKeys(Keys.TAB).perform();
+        actions.click(nurettin.lastNameBox).sendKeys(Keys.TAB).perform();
     }
 
     @Then("{string} feedback yazisinin gorundugunu dogrular")
     public void feedbackYazisininGorundugunuDogrular(String text) {
-        assertEquals(text,medunnaPage.firstInvalidFeedback.getText());
+        assertEquals(text, nurettin.firstInvalidFeedback.getText());
     }
 
     @Then("{string} lastname feedback yazisinin gorundugunu dogrular")
     public void lastnameFeedbackYazisininGorundugunuDogrular(String text) {
-        assertEquals(text,medunnaPage.lastInvalidFeedback.getText());
+        assertEquals(text, nurettin.lastInvalidFeedback.getText());
     }
 }

@@ -5,8 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class MedunnaPage {
-    public MedunnaPage() {
+public class Nurettin {
+    public Nurettin() {
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
