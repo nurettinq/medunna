@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="15.432">
-    <testcase classname="database test" name="TC_005 E-mail API ve DB ile doğrulanmalıdır." time="15.025">
-        <failure message="did not match expected:&lt;hasta&gt; but was:&lt;null&gt;" type="java.lang.AssertionError"><![CDATA[Given nq Connect to database................................................passed
-When nq According to the SSN value in the table, the user receives all information.passed
-Then nq Verify  query result................................................failed
-
-StackTrace:
-java.lang.AssertionError: did not match expected:<hasta> but was:<null>
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.failNotEquals(Assert.java:835)
-	at org.junit.Assert.assertEquals(Assert.java:120)
-	at stepDefinitions.US01DBStep.nqVerifyQueryResult(US01DBStep.java:35)
-	at ✽.nq Verify  query result(file:///C:/Users/nuret/IdeaProjects/Madunna_nurettinq/src/test/resources/features/us01nqdb.feature:7)
-]]></failure>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="6.83">
+    <testcase classname="room post testi" name="Test room API" time="6.359">
+        <system-out><![CDATA[Given user sends a post request for room....................................passed
+And user gets the room and validation.......................................passed
+]]></system-out>
     </testcase>
 </testsuite>
